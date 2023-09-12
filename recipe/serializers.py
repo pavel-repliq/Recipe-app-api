@@ -13,3 +13,9 @@ class RecipeSerializer(serializers.ModelSerializer):
       if value < 5 :
          raise serializers.ValidationError("too short time") 
       return value 
+
+class RecipeDetailSerializer(RecipeSerializer):
+   #  serializer for recipe detail view 
+   
+   class Meta(RecipeSerializer.Meta):
+      fields = RecipeSerializer.Meta.fields + ['description'] 
